@@ -10,8 +10,22 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            font-size: 3em;
             font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        #days-counter {
+            font-size: 5vw; /* Responsive font size */
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            #days-counter {
+                font-size: 3vw;
+            }
+        }
+        @media (min-width: 1200px) {
+            #days-counter {
+                font-size: 2vw;
+            }
         }
     </style>
 </head>
