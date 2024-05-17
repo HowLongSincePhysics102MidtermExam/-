@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Since Physics 102 Midterm Exam</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 3em;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="days-counter"></div>
+
+    <script>
+        function updateDaysCounter() {
+            const examDate = new Date('2024-04-16T00:00:00');
+            const currentDate = new Date();
+            const timeDifference = currentDate - examDate;
+            const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            document.getElementById('days-counter').textContent = `${daysDifference}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        updateDaysCounter();
+        setInterval(updateDaysCounter, 1000); // Update every second
+    </script>
+</body>
+</html>
