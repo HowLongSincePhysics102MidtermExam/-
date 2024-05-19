@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physics 102 Midterm Exam Results</title>
+    <title>Exam Result Announcement</title>
     <style>
         body {
             display: flex;
@@ -11,45 +11,43 @@
             align-items: center;
             height: 100vh;
             font-family: Arial, sans-serif;
-            margin: 0;
             text-align: center;
-            padding: 20px;
+            margin: 0;
+            padding: 2rem;
             box-sizing: border-box;
         }
-        #message {
-            font-size: 5vw; /* Responsive font size */
+        #result {
+            font-size: 2em;
         }
         @media (min-width: 768px) {
-            #message {
-                font-size: 3vw;
+            #result {
+                font-size: 1.5em;
             }
         }
         @media (min-width: 1200px) {
-            #message {
-                font-size: 2vw;
+            #result {
+                font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
-    <div id="message"></div>
+    <div id="result"></div>
 
     <script>
-        // Exam date and result date
-        const examDate = new Date('2024-04-16T00:00:00');
-        const resultDate = new Date('2024-05-19T12:00:00');
-
-        // Calculate the difference in milliseconds
+        const examDate = new Date('2024-04-16T08:30:00');
+        const resultDate = new Date('2024-05-19T13:34:10');
         const timeDifference = resultDate - examDate;
 
-        // Convert time difference to days
-        const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-        // Create the message
-        const message = `It took ${daysDifference} days to announce the results. (Fun fact: It takes about 3 days to travel from Earth to the Moon!)`;
+        const message = `It took ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds to announce the results.<br>
+                         Fun fact: It takes about 3 days to travel from Earth to the Moon!`;
 
-        // Display the message
-        document.getElementById('message').textContent = message;
+        document.getElementById('result').innerHTML = message;
     </script>
 </body>
 </html>
