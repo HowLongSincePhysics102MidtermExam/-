@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Days Since Physics 102 Midterm Exam</title>
+    <title>Physics 102 Midterm Exam Results</title>
     <style>
         body {
             display: flex;
@@ -12,40 +12,44 @@
             height: 100vh;
             font-family: Arial, sans-serif;
             margin: 0;
-        }
-        #days-counter {
-            font-size: 5vw; /* Responsive font size */
             text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #message {
+            font-size: 5vw; /* Responsive font size */
         }
         @media (min-width: 768px) {
-            #days-counter {
+            #message {
                 font-size: 3vw;
             }
         }
         @media (min-width: 1200px) {
-            #days-counter {
+            #message {
                 font-size: 2vw;
             }
         }
     </style>
 </head>
 <body>
-    <div id="days-counter"></div>
+    <div id="message"></div>
 
     <script>
-        function updateDaysCounter() {
-            const examDate = new Date('2024-04-16T00:00:00');
-            const currentDate = new Date();
-            const timeDifference = currentDate - examDate;
-            const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-            document.getElementById('days-counter').textContent = `${daysDifference}d ${hours}h ${minutes}m ${seconds}s`;
-        }
+        // Exam date and result date
+        const examDate = new Date('2024-04-16T00:00:00');
+        const resultDate = new Date('2024-05-19T12:00:00');
 
-        updateDaysCounter();
-        setInterval(updateDaysCounter, 1000); // Update every second
+        // Calculate the difference in milliseconds
+        const timeDifference = resultDate - examDate;
+
+        // Convert time difference to days
+        const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+        // Create the message
+        const message = `It took ${daysDifference} days to announce the results. (Fun fact: It takes about 3 days to travel from Earth to the Moon!)`;
+
+        // Display the message
+        document.getElementById('message').textContent = message;
     </script>
 </body>
 </html>
