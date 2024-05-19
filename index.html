@@ -44,7 +44,7 @@
         const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-        const message = `It took ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds to announce the results.<br>
+        const message = `It took ${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds to announce the results.<br>
                          Fun fact: It takes about 3 days to travel from Earth to the Moon!`;
 
         document.getElementById('result').innerHTML = message;
